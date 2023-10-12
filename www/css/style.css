@@ -39,6 +39,7 @@
     
     #time {
         box-shadow: 5px 5px 5px;
+        width: 50%;
         color: #ff0000;
         font-size: 20px;
         text-align: center;
