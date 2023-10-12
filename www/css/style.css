@@ -55,6 +55,7 @@
     
     #btnA {
         background-color: yellow;
+        color: green;
         font-size: 20px;
         position:absolute; top:380px; left:2%; width:43%; height:60px; 
     }
