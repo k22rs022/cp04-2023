@@ -38,6 +38,7 @@
     }
     
     #time {
+        margin: 0 auto;
         box-shadow: 5px 5px 5px;
         width: 50%;
         color: #ff0000;
