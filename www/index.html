@@ -19,7 +19,12 @@
         setInterval(function(){
             timer();
         },500);
-    });  
+         $("#btnD").click(function(e) {
+                btnDClick(e);
+            });
+    });
+
+  
       
     // ready クリックの処理の登録
     $(function() { 
@@ -38,6 +43,11 @@
         $('#btnC').click(function(e) {
             btnCClick(e);
         });
+
+        $('#btnD').click(function(e) {
+            btnCClick(e);
+        });
+        
         init();
     });
     
@@ -163,6 +173,7 @@
         $('#btnA').prop('disabled', false);
         $('#btnB').prop('disabled', false);
         $('#btnC').prop('disabled', false);
+        $('#btnD').prop('disabled', false);
         
     }
 
@@ -175,11 +186,12 @@
         img.onload = function(){
           ctx.drawImage(img, 0, 0, 300, 300);
         };
-        
+
         var audio = new Audio();
         audio.src = "pin.wav";
         audio.play();
-    }
+
+     }
     
     // ButtonAがクリックされた時の処理
     function btnAClick(e){
@@ -191,7 +203,7 @@
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active  = false;
-        
+
     }
 
     // ButtonCがクリックされた時の処理
@@ -202,8 +214,13 @@
         $("#time").html("経過時間 ： 0");
         $("#remain").html("残り時間：" + period);
     }
-    
- 
+
+    function btnDClick(e){
+        $("#disp1").html("Hello, JavaScript!<br>This is Monaca<br>");
+        $("#disp1").css("font-size","x-large");
+        $("#disp1").css("font-family","serif");
+    }
+
     // 繰り返し実行する処理
     function timer(){  
       if(active){
@@ -213,12 +230,13 @@
         $("#remain").html("残り時間 :" +rest);
         analog(rest); 
         if(rest<=0){
-        active=false;
-        alarm();
+            active=false;
+            alarm();
+        }else if(rest==5){
+            alarm();
         }
       }
-    } 
-
+    }
   </script>
 </head>
 <body>
@@ -231,7 +249,9 @@
     <div id="time">Time</div>
     <button id="btnA">Start</button>  
     <button id="btnB">Stop</button>  
-    <button id="btnC">Set</button>  
+    <button id="btnC">Set</button> 
+    <button id="btnD">restart</button> 
+    <div id="disp1" class="out">DISPLAY 1</div>
     <input type="number" id="minute" value=0 >
     <input type="number" id="second" value=15 >
 </body>
