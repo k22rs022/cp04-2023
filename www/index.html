@@ -164,6 +164,7 @@
     var active = false;
     var startTime =0;
     var period = 0;
+    var minute = 0;
 
 
 
@@ -197,18 +198,16 @@
     function btnAClick(e){
         active = true;
         startTime = new Date();
-        
+        $("#btnB").css("font-family","cursive");
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
         active  = false;
-
     }
 
     // ButtonCがクリックされた時の処理
     function btnCClick(e){
-        alarm();
         active = false;
         period = 60* parseInt( $("#minute").val() )+  parseInt( $("#second").val() );
         $("#time").html("経過時間 ： 0");
@@ -216,9 +215,9 @@
     }
 
     function btnDClick(e){
-        $("#disp1").html("Hello, JavaScript!<br>This is Monaca<br>");
+        $("#disp1").html("Hello, JavaScript!<br>Happy Halloween<br>");
         $("#disp1").css("font-size","x-large");
-        $("#disp1").css("font-family","serif");
+        $("#disp1").css("font-family","cursive");
     }
 
     // 繰り返し実行する処理
@@ -234,6 +233,7 @@
             alarm();
         }else if(rest==5){
             alarm();
+            $("#btnB").css("font-family","serif");
         }
       }
     }
